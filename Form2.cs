@@ -89,6 +89,7 @@ namespace FormsSpicker
                         else
                         {
                             await writer.WriteLineAsync(savefile);
+                            this.Close();
                         }
                     }
                 }

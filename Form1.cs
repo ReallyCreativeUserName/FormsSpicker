@@ -9,7 +9,7 @@ namespace FormsSpicker
     public partial class Form1 : Form
     {
         private static CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-        string pfad = dialog.InitialDirectory = @"C:\Users";
+        string pfad = string.Empty;
 
         public Form1()
         {
@@ -87,6 +87,7 @@ namespace FormsSpicker
             //notiz erzeugen und in form2 schicken
             var createwindow = new Form2(pfad);
             await Task.Factory.StartNew(createwindow.ShowDialog);
+            
         }
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -103,7 +104,6 @@ namespace FormsSpicker
                     lesen.ShowDialog();
                 };
             }
-
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
