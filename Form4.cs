@@ -10,15 +10,22 @@ namespace FormsSpicker
         private string inhalt { get; set; }
         public Form4(string text)
         {
-            InitializeComponent();
-            this.text = text;
-            string[] teil = text.Split(";");
-            title = teil[0];
-            inhalt = teil[1];
-            textBox1.Text = title;
-            textBox2.Text = inhalt;
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
+            try
+            {
+                InitializeComponent();
+                this.text = text;
+                string[] teil = text.Split(";");
+                title = teil[0];
+                inhalt = teil[1];
+                textBox1.Text = title;
+                textBox2.Text = inhalt;
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                Form3 fehlerfenster = new Form3("Date konnte nicht ausgelesen werden.");
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -14,15 +14,22 @@ namespace FormsSpicker
         private bool save { get; set; }
         public Form5(string text, string pfad)
         {
-            InitializeComponent();
-            this.pfad = pfad;
-            this.text = text;
-            string[] teil = text.Split(";");
-            title = teil[0];
-            inhalt = teil[1];
-            textBox1.Text = title;
-            textBox2.Text = inhalt;
-            save = false;
+            try
+            {
+                InitializeComponent();
+                this.pfad = pfad;
+                this.text = text;
+                string[] teil = text.Split(";");
+                title = teil[0];
+                inhalt = teil[1];
+                textBox1.Text = title;
+                textBox2.Text = inhalt;
+                save = false;
+            }
+            catch(Exception ex)
+            {
+                Form3 fehlerfenster = new Form3("Date konnte nicht ausgelesen werden.");
+            }
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -73,6 +80,8 @@ namespace FormsSpicker
 
                 save = true;
             }
+
+            this.Close();
 
         }
 
